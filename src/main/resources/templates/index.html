@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	  th:replace="~{base::layout(~{::section})}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Insert title here</title>
@@ -45,7 +44,7 @@
     }
 
     .hero-content {
-      padding: 3rem;
+      padding: 2rem;
       background: rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(5px);
       border-radius: 1rem;
@@ -101,18 +100,72 @@
       scroll-behavior: smooth;
     }
 
+    /* Adjustments for section sizes */
+    .carousel-item img {
+      height: 250px;
+      object-fit: cover;
+    }
+
+    #categories .card img {
+      height: 100px;
+    }
+
+    #categories .card {
+      padding: 1rem;
+    }
+
+    #categories .card a {
+      font-size: 0.54rem;
+    }
+
+    .carousel-caption h2 {
+      font-size: 1.8rem;
+    }
+
+    .carousel-caption p {
+      font-size: 0.9rem;
+    }
+
+    #categories p.text-center.fs-4 {
+      font-size: 0.9rem;
+    }
+
+    /* Reduced trending section size */
+    #trending {
+      padding: 1rem 0;
+    }
+
+    #trending .card {
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    #trending .card img {
+      height: 80px;
+      object-fit: contain;
+    }
+
+    #trending p.text-center.fs-4 {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    #trending .card-body p {
+      font-size: 0.7rem;
+      margin-top: 0.5rem;
+    }
+
     @media (max-width: 768px) {
       .hero-content {
         padding: 1.5rem;
       }
 
       .carousel-caption h2 {
-        font-size: 2rem;
+        font-size: 1.2rem;
       }
 
-      .btn {
-        font-size: 1rem;
-        padding: 0.75rem 1.5rem;
+      .carousel-caption p {
+        font-size: 0.7rem;
       }
 
       .carousel-control-prev, .carousel-control-next {
@@ -125,28 +178,27 @@
 
 <body>
 <section>
+	<!-- Carousel Section -->
 	<div id="ecomHeroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
-		<!-- Indicators -->
 		<div class="carousel-indicators">
 			<button type="button" data-bs-target="#ecomHeroCarousel" data-bs-slide-to="0" class="active"></button>
 			<button type="button" data-bs-target="#ecomHeroCarousel" data-bs-slide-to="1"></button>
 			<button type="button" data-bs-target="#ecomHeroCarousel" data-bs-slide-to="2"></button>
 		</div>
 
-		<!-- Slides -->
 		<div class="carousel-inner">
 			<!-- Slide 1 -->
 			<div class="carousel-item active">
 				<div class="hero-image-overlay"></div>
-				<img src="img/ecom1.jpeg" class="d-block w-100" alt="Slide 1" style="height: 600px; object-fit: cover;">
+				<img src="img/epc4.jpg" class="d-block w-100" alt="Slide 1">
 				<div class="carousel-caption">
 					<div class="hero-content animate__animated animate__fadeInDown">
-						<span class="badge bg-primary mb-3">New Season</span>
-						<h2 class="display-4 fw-bold">Summer Collection 2023</h2>
-						<p class="lead">Discover our fresh new arrivals designed for your perfect summer</p>
+						<span class="badge bg-primary mb-3">Ultimate Drop</span>
+						<h2 class="display-4 fw-bold">2025 Must-Haves</h2>
+						<p class="lead">From sleek tech to bold fashion, shop the collection that defines the year</p>
 						<div class="mt-4 d-flex justify-content-center gap-3">
-							<a href="/products" class="btn btn-primary">Shop Collection</a>
-							<a href="#trending" class="btn btn-outline-light">View Trends</a>
+							<a href="/products" class="btn btn-primary btn-sm">Shop Collection</a>
+							<a href="#trending" class="btn btn-outline-light btn-sm">View Trends</a>
 						</div>
 					</div>
 				</div>
@@ -155,13 +207,13 @@
 			<!-- Slide 2 -->
 			<div class="carousel-item">
 				<div class="hero-image-overlay"></div>
-				<img src="img/ecom3.jpg" class="d-block w-100" alt="Slide 2" style="height: 600px; object-fit: cover;">
+				<img src="img/pic10.jpg" class="d-block w-100" alt="Slide 2">
 				<div class="carousel-caption">
 					<div class="hero-content animate__animated animate__fadeInDown">
-						<span class="badge bg-danger mb-3">Flash Sale</span>
-						<h2 class="display-4 fw-bold">Up to 50% OFF</h2>
-						<p class="lead">Our biggest sale of the year ends soon - don't miss out!</p>
-						<a href="/products?discount=true" class="btn btn-warning mt-3">Shop Deals</a>
+						<span class="badge bg-danger mb-3">Crazy Discounts</span>
+						<h2 class="display-4 fw-bold">Up to 80% OFF</h2>
+						<p class="lead">Don't wait?score epic deals across all categories before they're gone!</p>
+						<a href="/products?discount=true" class="btn btn-warning btn-sm mt-3">Shop Deals</a>
 					</div>
 				</div>
 			</div>
@@ -169,19 +221,18 @@
 			<!-- Slide 3 -->
 			<div class="carousel-item">
 				<div class="hero-image-overlay"></div>
-				<img src="img/ecom2.jpg" class="d-block w-100" alt="Slide 3" style="height: 600px; object-fit: cover;">
+				<img src="img/admin.jpg" class="d-block w-100" alt="Slide 3">
 				<div class="carousel-caption">
 					<div class="hero-content animate__animated animate__fadeInDown">
-						<span class="badge bg-success mb-3">Just In</span>
-						<h2 class="display-4 fw-bold">Fresh Arrivals Weekly</h2>
-						<p class="lead">Stay ahead with our latest collection drops and trends</p>
-						<a href="/products?new=true" class="btn btn-primary mt-3">Explore Now</a>
+						<span class="badge bg-success mb-3">Daily Vibes</span>
+						<h2 class="display-4 fw-bold">New Gear Every Day</h2>
+						<p class="lead">Stay fresh with our latest drops, from gadgets to style, made for 2025</p>
+						<a href="/products?new=true" class="btn btn-primary btn-sm mt-3">Explore Now</a>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- Controls -->
 		<button class="carousel-control-prev" type="button" data-bs-target="#ecomHeroCarousel" data-bs-slide="prev">
 			<span class="carousel-control-prev-icon"></span>
 		</button>
@@ -197,54 +248,8 @@
 			<div class="col-md-2" th:each="c:${category}">
 				<div class="card rounded-circle shadow-sm p-3 mb-5 bg-body-tertiary rounded">
 					<div class="card-body text-center">
-						<img th:src="@{'img/category_img/'+${c.imageName}}" width="65%" height="140px"><br>
+						<img th:src="@{'img/category_img/'+${c.imageName}}" width="65%"><br>
 						<a th:href="@{'/products?category='+${c.name}}" class="text-decoration-none">[[${c.name}]]</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-2">
-    <div
-        class="card rounded-circle shadow-sm p-3 mb-5 bg-body-tertiary rounded ">
-        <div class="card-body text-center">
-            <img src="img/category_img/beuty.png" width="65%" height="140px">
-            <p>Beauty</p>
-        </div>
-    </div>
-</div>
-			<div class="col-md-2">
-				<div
-						class="card rounded-circle shadow-sm p-3 mb-5 bg-body-tertiary rounded ">
-					<div class="card-body text-center">
-						<img src="img/category_img/pant.png" width="65%" height="140px">
-						<p>Clothes</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-2">
-				<div
-						class="card rounded-circle shadow-sm p-3 mb-5 bg-body-tertiary rounded ">
-					<div class="card-body text-center">
-						<img src="img/category_img/laptop.jpg" width="65%" height="140px">
-						<p>Laptop</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-2">
-				<div
-						class="card rounded-circle shadow-sm p-3 mb-5 bg-body-tertiary rounded ">
-					<div class="card-body text-center">
-						<img src="img/category_img/mobile.png" width="65%" height="140px">
-						<p>Mobile</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-2">
-				<div
-						class="card rounded-circle shadow-sm p-3 mb-5 bg-body-tertiary rounded ">
-					<div class="card-body text-center">
-						<img src="img/category_img/groccery.jpg" width="65%"
-							 height="140px">
-						<p>Grocery</p>
 					</div>
 				</div>
 			</div>
@@ -252,91 +257,57 @@
 	</div>
 
 	<!-- Latest Product Module -->
-	<div class="container-fluid bg-light p-3" id="trending">
+	<div class="container-fluid bg-light" id="trending">
 		<div class="row">
 			<p class="text-center fs-4">Latest Product</p>
-			<div class="col-md-3" th:each="p:${products}">
-				<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+			<div class="col-6 col-md-2" th:each="p:${products}">
+				<div class="card shadow-sm bg-body-tertiary rounded">
 					<div class="card-body text-center">
-						<img alt="" th:src="@{'img/product_img/'+${p.image}}" class="" width="65%" height="140px">
+						<img alt="" th:src="@{'img/product_img/'+${p.image}}" class="" width="65%">
 						<p class="text-center"><a th:href="@{'/product/'+${p.id}}" class="text-decoration-none">[[${p.title}]]</a></p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3">
-				<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
-					<div class="card-body text-center">
-						<img alt="" src="img/product_img/laptop.jpg" class="" width="65%"
-							 height="140px">
-						<p class="text-center">HP Laptop</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
-					<div class="card-body text-center">
-						<img alt="" src="img/product_img/laptop.jpg" class="" width="65%"
-							 height="140px">
-						<p class="text-center">HP Laptop</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3">
-				<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
-					<div class="card-body text-center">
-						<img alt="" src="img/product_img/laptop.jpg" class="" width="65%"
-							 height="140px">
-						<p class="text-center">HP Laptop</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-	// Enhanced carousel transitions and smooth scrolling
-    document.addEventListener('DOMContentLoaded', function() {
-        // Initialize carousel with enhanced settings
-        var myCarousel = document.getElementById('ecomHeroCarousel');
-        var carousel = new bootstrap.Carousel(myCarousel, {
-            interval: 3300,
-            wrap: true,
-            pause: "hover",
-            touch: true
-        });
+	document.addEventListener('DOMContentLoaded', function() {
+		var myCarousel = document.getElementById('ecomHeroCarousel');
+		var carousel = new bootstrap.Carousel(myCarousel, {
+			interval: 3300,
+			wrap: true,
+			pause: "hover",
+			touch: true
+		});
 
-        // Add smooth fade effect
-        myCarousel.addEventListener('slide.bs.carousel', function () {
-            var activeSlide = document.querySelector('.carousel-item.active');
-            activeSlide.style.opacity = 0;
-        });
+		myCarousel.addEventListener('slide.bs.carousel', function () {
+			var activeSlide = document.querySelector('.carousel-item.active');
+			activeSlide.style.opacity = 0;
+		});
 
-        myCarousel.addEventListener('slid.bs.carousel', function () {
-            var activeSlide = document.querySelector('.carousel-item.active');
-            activeSlide.style.opacity = 1;
-        });
+		myCarousel.addEventListener('slid.bs.carousel', function () {
+			var activeSlide = document.querySelector('.carousel-item.active');
+			activeSlide.style.opacity = 1;
+		});
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function(e) {
+				e.preventDefault();
+				const targetId = this.getAttribute('href');
+				const targetElement = document.querySelector(targetId);
 
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80, // Offset for fixed header if needed
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    });
+				if (targetElement) {
+					window.scrollTo({
+						top: targetElement.offsetTop - 80,
+						behavior: 'smooth'
+					});
+				}
+			});
+		});
+	});
 </script>
-
-
 </body>
 </html>
